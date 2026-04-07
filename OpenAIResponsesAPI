@@ -1,0 +1,17 @@
+#https://microsoftlearning.github.io/ai-apps/model-coder/
+# import namespace
+from openai import OpenAI
+
+# Initialize the OpenAI client
+openai_client = OpenAI(
+     base_url="http://localwllama",
+     api_key="key123"
+)
+
+# Get a response
+response = openai_client.responses.create(
+     model="smollm2",
+     instructions="You are a helpful AI assistant that answers questions and provides information.",
+     input="Explain the Turing test."
+)
+print(response.output_text)
