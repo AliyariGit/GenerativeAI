@@ -1,0 +1,27 @@
+#Explore client code to use a model
+https://microsoftlearning.github.io/ai-apps/model-coder/
+
+# import namespace
+from openai import OpenAI
+
+# Initialize the OpenAI client
+openai_client = OpenAI(
+     base_url="http://localwllama",
+     api_key="key123"
+)
+            
+# Get a response
+completion = openai_client.chat.completions.create(
+     model="smollm2",
+     messages=[
+         {
+             "role": "system",
+             "content": "You are a helpful AI assistant that answers questions and provides information."
+         },
+         {
+             "role": "user",
+             "content": "Tell me about the ELIZA chatbot."
+         }
+     ]
+)
+print(completion.choices[0].message.content)
